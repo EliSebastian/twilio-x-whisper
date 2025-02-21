@@ -1,8 +1,90 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+Layout/LineLength:
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
+
+Metrics/AbcSize:
+  Max: 17
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Metrics/BlockNesting:
+  Enabled: true
+  Max: 1
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Metrics/MethodLength:
+  Max: 8
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "db/**/*"
+    - "spec/**/*"
+    - "config/routes.rb"
+    - "bin/**/*"
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/Output:
+  Exclude:
+    - 'db/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  EnforcedStyle: omit_parentheses
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
